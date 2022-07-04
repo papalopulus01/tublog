@@ -15,3 +15,6 @@ Utilización
 
 *Iniciar sesión* (http://127.0.0.1:8000/miembros/login/) donde podrá acceder con el usuario ya creado. En este caso, ingresaremos con las credenciales *admin* / *Coderhouse2022*. 
 
+Una vez logueado usted podrá editar y borrar sus posteos desde la página principal *Home* ( http://127.0.0.1:8000/), además de contar con las siguientes solapas: 
+
+*Crear publicación* (http://127.0.0.1:8000/crear_articulo/ 
