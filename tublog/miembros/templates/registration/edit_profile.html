@@ -1,0 +1,19 @@
+{% extends 'padre.html' %}
+{%block title%}Editar perfil{% endblock %}
+{% block content %}
+
+<h1>Editar perfil</h1>
+<br/><br/>
+
+<h5>Desde esta sección puedes editar tu perfil</h5>
+<br></br>
+<div class="form-group">
+    <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+</div>
+
+<button class="btn btn-secondary">Actualizar perfil</button>
+
+
+{% endblock %}

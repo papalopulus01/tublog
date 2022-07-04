@@ -1,0 +1,58 @@
+{% extends 'padre.html' %}
+{% block title %} 
+{{post.titulo}} - {{post.etiqueta_titulo}}
+ {% endblock %}
+
+{% block content %}
+
+<h1>{{post.titulo}} </h1> 
+<br></br>
+<small> Por:
+    {{post.autor.first_name}} 
+    {{post.autor.last_name}} -
+    {{post.fecha}} -
+    {{post.hora}}  </small>
+<br></br>
+
+{% if user.is_authenticated %}
+{% if user.id == post.autor.id %}
+</small><a href="{% url 'actualizar_articulo' post.pk %}">Editar</a></small>
+<a href="{% url 'borrar_articulo' post.pk %}">Borrar</a> </small>
+<hr>
+{%endif%}
+{% endif %}
+
+<br/>
+{% if post.imagen_de_cabecera %}
+<img src="{{post.imagen_de_cabecera.url}}">
+{% endif %}
+<br></br>
+{{post.cuerpo|safe}}
+
+<br/></br>
+<hr>
+<h2>Comentarios</h2>
+{% if not post.comentarios.all %}
+Todavía no hay comentarios. 
+<a href="{% url 'crear_comentario' post.pk %}">Agregar comentario</a>
+{% else %}
+<a href="{% url 'crear_comentario' post.pk %}">Agregar comentario</a>
+<br></br>
+  {% for comment in post.comentarios.all %}
+  <strong>{{comment.nombre}} - {{comment.fecha_agregado}}</strong>
+  <br/>
+  {{comment.cuerpo}}
+  <br/></br>
+  <a href="{% url 'crear_comentario' post.pk %}">Agregar comentario</a>
+<br></br>
+  {% endfor %}
+{% endif %}
+<hr>
+
+<br/><br/>
+
+<br/></br>
+
+<a href="{% url 'home' %}" class="btn btn-secondary">Volver</a>
+
+{% endblock %}

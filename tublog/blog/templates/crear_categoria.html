@@ -1,0 +1,23 @@
+{% extends 'padre.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<h1>Nueva categoría</h1>
+<br/><br/>
+<div class="form-group">
+    <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+</div>
+
+<button class="btn btn-secondary">Crear categoría</button>
+
+{% else %}
+
+No estás autorizado para crear una categoría.
+
+{%endif%}
+
+
+{% endblock %}

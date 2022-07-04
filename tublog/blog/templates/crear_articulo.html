@@ -1,0 +1,32 @@
+{% extends 'padre.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<h1>Nueva publicación</h1>
+<br/><br/>
+
+<div class="form-group">
+    <form method="POST" enctype="multipart/form-data">  
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form.as_p }}
+</div>
+
+<button class="btn btn-secondary">Publicar</button>
+
+<script>
+
+     var name = "{{ user.username}}";
+     document.getElementById(id).value = name;
+
+
+</script>
+
+{% else %}
+
+No estás autorizado para publicar.
+
+{%endif%}
+
+{% endblock %}
