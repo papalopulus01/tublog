@@ -1,5 +1,7 @@
 Sitio creado por Pedro Pasquale
 
+Vídeo de Youtube con el paso a paso de cómo se usa: https://www.youtube.com/watch?v=ei3u4-6PX9E
+
 Ejecución
 
 1. Descargar el archivo tublog-main.zip desde GitHub.
